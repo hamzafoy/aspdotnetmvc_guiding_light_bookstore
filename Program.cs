@@ -8,6 +8,4 @@ app.UseDefaultFiles(defaultFileOption);
 app.UseStaticFiles();
 
 
-app.MapGet("/", () => "Hello World!");
-
 app.Run();
