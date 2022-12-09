@@ -1,6 +1,49 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using SampleNetCoreMVC.Models
+@model ContactViewModel
 @{
     <h1>@ViewBag.Title</h1>
 }
+
+<div class="row mx-5 px-5">
+
+        <form class="my-2 contactForm" method="post">
+
+            <label class="h4">Login Form</label>
+
+            <div class="form-group my-2">
+                <label asp-for="FullName">
+                    Your Name
+                </label>
+                <input asp-for="FullName" type="text" class="form-control" id="inputFullName" placeholder="Type your full name here" />
+            </div>
+
+            <div class="form-group my-2">
+                <label asp-for="Email">
+                    Your Email
+                </label>
+                <input asp-for="Email" type="email" class="form-control" id="inputEmail" placeholder="Type your email address here" />
+            </div>
+
+            <div class="form-group my-2">
+                <label asp-for="MessageSubject">
+                    Subject Title
+                </label>
+                <input asp-for="MessageSubject" type="text" class="form-control" id="inputSubject" placeholder="Type the title of your message here" />
+            </div>
+
+            <div class="form-group my-2">
+                <label asp-for="MessageBody">
+                    Message
+                </label>
+                <input asp-for="MessageBody" type="text" class="form-control" id="inputBody" placeholder="Type your message here" />
+            </div>
+
+            <div class="form-group">
+
+                <button type="submit" class="btn btn-dark">Submit</button>
+
+            </div>
+
+        </form>
+
+    </div>

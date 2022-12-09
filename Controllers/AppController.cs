@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SampleNetCoreMVC.Models;
 
 namespace SampleNetCoreMVC.Controllers
 {
@@ -9,9 +10,16 @@ namespace SampleNetCoreMVC.Controllers
             return View();
         }
 
+        [HttpGet("contact")]
         public IActionResult Contact()
         {
             ViewBag.Title = "Contact Us!";
+            return View();
+        }
+
+        [HttpPost("contact")]
+        public IActionResult Contact(ContactViewModel model)
+        {
             return View();
         }
     }
