@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SampleNetCoreMVC.Data.Context;
 using SampleNetCoreMVC.Models;
 using SampleNetCoreMVC.Services;
 
@@ -7,9 +8,12 @@ namespace SampleNetCoreMVC.Controllers
     public class AppController : Controller
     {
         private readonly IConsoleMailService _mailService;
-        public AppController(IConsoleMailService ConsoleMailService)
+        private readonly GLBContext _context;
+
+        public AppController(IConsoleMailService ConsoleMailService, GLBContext context)
         {
             _mailService = ConsoleMailService;
+            _context = context;
         }
         public IActionResult Index()
         {
@@ -21,6 +25,19 @@ namespace SampleNetCoreMVC.Controllers
         {
             ViewBag.Title = "Contact Us!";
             return View();
+        }
+
+        [HttpGet("library")]
+        public IActionResult Library()
+        {
+            var results = _context.Products
+                .OrderBy(product => product.PublishingHouse)
+                .ToList();
+            //Also correct syntax
+            //var results = from product in _context.Products
+            //              orderby product.PublishingHouse
+            //              select product;
+            return View(results);
         }
 
         [HttpPost("contact")]
