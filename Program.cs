@@ -1,11 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SampleNetCoreMVC.Controllers;
+using SampleNetCoreMVC.Data.Context;
 using SampleNetCoreMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 // This is the latest process to give the server the service to have controllers to serve views/webpages.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<GLBContext>(configuration =>
+{
+    configuration.UseSqlServer();
+});
 builder.Services.AddTransient<IConsoleMailService, ConsoleMailService>();
 var app = builder.Build();
 
