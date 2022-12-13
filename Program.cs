@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using SampleNetCoreMVC.Controllers;
 using SampleNetCoreMVC.Data.Context;
 using SampleNetCoreMVC.Services;
@@ -14,6 +15,21 @@ builder.Services.AddDbContext<GLBContext>(configuration =>
 });
 builder.Services.AddTransient<IConsoleMailService, ConsoleMailService>();
 var app = builder.Build();
+SeedDatabase();
+
+void SeedDatabase()
+{
+    using(var scope = app.Services.CreateScope())
+        try
+        {
+            var scopedContext = scope.ServiceProvider.GetRequiredService<GLBContext>();
+            GLBSeedPlanter.Seed(scopedContext);
+        }
+        catch
+        {
+            throw;
+        }
+}
 
 
 // Process of serving base .html files without relying on MVC infrastructure

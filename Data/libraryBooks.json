@@ -1,0 +1,29 @@
+[
+  {
+    "Title": "Mukhtasar al-Akhdari",
+    "BookDescription": "A Maliki fiqh handbook regarding acts of worship.",
+    "Price": 5.99,
+    "Author": "Imam Abdur-Rahman al-Akhdari",
+    "Translator": "Sidi Baye",
+    "PublishDate": "2014-01-01T00:00:00",
+    "PublishingHouse": "Fayda Books"
+  },
+  {
+    "Title": "The Ultimate Conspectus",
+    "BookDescription": "A Shafi'i book of fiqh about worship and social dealings.",
+    "Price": 7.99,
+    "Author": "Abu Shuja al-Asfahani",
+    "Translator": "Musa Furber",
+    "PublishDate": "2007-01-01T00:00:00",
+    "PublishingHouse": "Islamosaic"
+  },
+  {
+    "Title": "Purification of the Heart",
+    "BookDescription": "A book regarding spiritual diseases of the heart.",
+    "Price": 10.99,
+    "Author": "Imam al-Mawlud",
+    "Translator": "Hamza Yusuf",
+    "PublishDate": "2012-01-01T00:00:00",
+    "PublishingHouse": "Sandala Press"
+  }
+]
